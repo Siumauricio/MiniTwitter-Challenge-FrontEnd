@@ -18,6 +18,8 @@ export class AppComponent {
   logout(){
     console.log("logout")
     localStorage.removeItem('jwt');
+    this.authService.isLogged=false;
+    this.router.navigate(['/login']);
   }
 
   isAuthenticated(){

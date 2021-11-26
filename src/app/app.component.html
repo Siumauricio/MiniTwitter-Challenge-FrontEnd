@@ -26,12 +26,13 @@
 
                 
                 <div class="col-md-6" *ngIf="isLogged">
+                    <h1 style="text-align: center;color: rgb(244,71,107);font-size: 19.9px;" ><a routerLink="/profile">Profile  </a></h1>
                     <h1 style="text-align: center;color: rgb(244,71,107);font-size: 19.9px;" ><a routerLink="/Tweet">Tweet  </a></h1>
+                    <h1 style="text-align: center;color: rgb(244,71,107);font-size: 19.9px;" ><a routerLink="/watch-all-tweets">Explore  </a></h1>
                 </div>
-
                 
                 <div class="col-md-6" *ngIf="isLogged">
-                    <h1 style="text-align: center;color: rgb(244,71,107);font-size: 19.9px;" clck><a routerLink="/login">Logout  </a></h1>
+                    <h1 style="text-align: center;color: rgb(244,71,107);font-size: 19.9px;" ><a  (click)="logout()">Logout  </a></h1>
                 </div>
                 
             </div>

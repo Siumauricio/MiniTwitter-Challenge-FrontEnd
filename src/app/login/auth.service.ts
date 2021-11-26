@@ -10,21 +10,22 @@ import Swal from 'sweetalert2';
 })
 export class AuthService {
     isLogged :boolean = false;
-  constructor(private http: HttpClient,private router:Router) { }
+    currentId:number = 0;
+    constructor(private http: HttpClient,private router:Router) { }
 
   async login(user:User){
     const url = `${URL}Auth`;
     
     await this.http.post<JWT>(url,user).subscribe((response) =>{
         const token = response.token;
-        localStorage.setItem('jwt',token);
+        this.currentId = response.idUser;
         this.isLogged = true;
+        localStorage.setItem('jwt',token);
         this.router.navigate(['/profile']);
         this.succesMessage('Logged Sucessfully');
     }, (error) =>{
         this.isLogged = false;
         this.errorMessage('Credentials Invalid');
-
     });
   }
   succesMessage(message:string) {

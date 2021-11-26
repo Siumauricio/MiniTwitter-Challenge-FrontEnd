@@ -1,1 +1,9 @@
-<p>watch-all-tweets works!</p>
+<section>
+    <div class='center cn'>
+        <h1>Explore all tweets</h1>
+        <div class="border mt-4 mb-4" *ngFor="let tweet of this.Tweet">
+            <h3>Username: {{tweet.username}} </h3>
+            <p>Tweet: {{tweet.twitt}}</p>
+        </div>
+    </div>
+</section>
