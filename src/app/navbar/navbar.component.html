@@ -1,4 +1,3 @@
-
 <html lang="en">
 
 <head>
@@ -19,18 +18,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h1 style="color: rgb(244,71,107);font-size: 19.9px;text-align: center;"><a routerLink="/login">Login  </a></h1>
+                    <h1 style="color: rgb(244,71,107);font-size: 19.9px;text-align: center;">Login</h1>
                 </div>
                 <div class="col-md-6">
-                    <h1 style="text-align: center;color: rgb(244,71,107);font-size: 19.9px;" ><a routerLink="/register">Register  </a></h1>
+                    <a [routerLink]="['/register']">Register  </a>
+                    <h1 style="text-align: center;color: rgb(244,71,107);font-size: 19.9px;" ></h1>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <router-outlet></router-outlet>
 
+    
 
 
     <footer class="footer-dark">
@@ -60,11 +60,5 @@
             <p class="copyright">Company Name © 2021</p>
         </div>
     </footer>
-
-
-
-    
-
-
-
-
+</body>
+</html>
