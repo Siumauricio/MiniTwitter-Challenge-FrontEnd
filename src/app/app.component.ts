@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { AuthService } from './login/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,14 +10,25 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'Mini-Twitter';
   currentUser:any
-  constructor(private router: Router){
+  constructor(private router: Router,private jwtHelper: JwtHelperService,private authService:AuthService){
   }
   click(){
 
   }
   logout(){
     console.log("logout")
-    this.router.navigate(['/navbar'])
+    localStorage.removeItem('jwt');
+  }
 
+  isAuthenticated(){
+    const token = localStorage.getItem('jwt');
+    if(token && !this.jwtHelper.isTokenExpired(token)){
+      console.log('Hola');
+      return true;
+    }
+    return false;
+  }
+  get isLogged(){
+    return this.authService.isLogged;
   }
 }

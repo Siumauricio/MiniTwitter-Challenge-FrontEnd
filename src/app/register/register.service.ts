@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { URL } from '../configurations/config';
 import { User } from '../interfaces/User';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private router:Router) { }
 
   async createUser(user:User){
     const url = `${URL}User`;
@@ -19,6 +20,7 @@ export class RegisterService {
         if (resp ){
             console.log(resp)
             this.succesMessage('¡Registration Succesful!');
+            this.router.navigate(['/login']);
         } else{
             this.errorMessage('¡Sorry, Probably this Username was Taken!');
         }

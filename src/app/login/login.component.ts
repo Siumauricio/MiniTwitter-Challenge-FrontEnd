@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
   LoginForm : FormGroup;
   validForm:boolean =false;
-  constructor(private formBuilder:FormBuilder,private router: Router) { 
+  
+  constructor(private formBuilder:FormBuilder,private router: Router,private authService:AuthService)  { 
     this.LoginForm = this.formBuilder.group({
       username: ['',[Validators.required,Validators.maxLength(30)]],
       password: ['',[Validators.required,Validators.maxLength(20)]],
@@ -21,13 +23,10 @@ export class LoginComponent implements OnInit {
   }
   async onSubmit(){
     if(this.LoginForm.valid){
-      console.log('Hola ')
-      this.router.navigate(['/profile'])
-
+      this.authService.login(this.LoginForm.getRawValue());
       this.validForm = true;
     }else{
       this.LoginForm.markAllAsTouched();
-      // this.errorMessage('Please Fill in a valid value for all required fields.')
     }
   }
 

@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TweetComponent } from './tweet/tweet.component';
 import { WatchAllTweetsComponent } from './watch-all-tweets/watch-all-tweets.component';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 const routes: Routes = [
     { path: '' ,children: [
@@ -14,7 +15,7 @@ const routes: Routes = [
         { path: 'login', component: LoginComponent,pathMatch: 'full' },
         {path:'register',component:RegisterComponent},
         {path:'profile',component:ProfileComponent},
-        {path:'Tweet',component:TweetComponent},
+        {path:'Tweet',component:TweetComponent,canActivate:[AuthGuardService]},
         {path:'watch-all-tweets',component:WatchAllTweetsComponent}
     ]} 
 
@@ -25,6 +26,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  providers: [AuthGuardService],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

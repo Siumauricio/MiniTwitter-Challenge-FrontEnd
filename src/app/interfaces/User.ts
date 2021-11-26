@@ -3,3 +3,6 @@ export interface User {
     password: string;
     email: string;
 }
+export interface JWT{
+    token: string;
+}
