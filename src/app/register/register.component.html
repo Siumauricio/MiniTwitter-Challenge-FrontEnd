@@ -1,0 +1,46 @@
+
+<section class="login-clean " style="max-height: none;margin: 0px;background: rgb(241, 247, 252);">
+    <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()" [ngClass]=" !this.validForm?'was-validated':''"  autocomplete="off" style="max-width: 547px;"> 
+        
+        <h2 class="container mt-1">Registration Form</h2>
+        <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
+
+        <div class="mb-3">
+            <input  id="floatingDNI"  class="form-control" formControlName="email" type="email" name="email" placeholder="Email" required />
+            <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger mt-3">
+                <div *ngIf="email?.errors?.required">
+                    Email is required
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <input class="form-control" formControlName="username" type="text" name="username" placeholder="Username" />
+            <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="alert alert-danger mt-3">
+                <div *ngIf="username?.errors?.required">
+                    Username is required
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <input class="form-control" formControlName="password" type="password" name="password" placeholder="Password" />
+            <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="alert alert-danger mt-3">
+                <div *ngIf="password?.errors?.required">
+                    Password is required
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <input class="form-control" formControlName="confirmpassword" type="password" name="confirmpassword" placeholder="Confirm Password" />
+            <div *ngIf="!equalPasswords && confirmpassword?.touched" class="alert alert-danger mt-3">
+                    Password does not match
+            </div>
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary d-block w-100" type="submit">Register</button>
+        </div><a class="forgot" href="/login">Already Register?</a>
+      </form>
+</section>
+
