@@ -1,7 +1,7 @@
     
     <section class="login-clean" style="max-height: none;margin: 0px;background: rgb(241, 247, 252);">
         <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()" [ngClass]=" !this.validForm?'was-validated':''"  autocomplete="off" style="max-width: 547px;">
-            <h2 class="container mt-1">Login Form</h2>
+            <h2 class="container mt-4">Login Form</h2>
             <div class="mb-3">
               <input  id="floatingDNI"  class="form-control" formControlName="username" type="text" name="username" placeholder="Email or Username" required />
               <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="alert alert-danger mt-3">

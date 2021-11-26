@@ -10,9 +10,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterService } from './register/register.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent, RegisterComponent],
+  declarations: [AppComponent, LoginComponent, NavbarComponent, RegisterComponent,  ProfileComponent],
   imports: [BrowserModule, AppRoutingModule,    ReactiveFormsModule,    SweetAlert2Module.forRoot(), HttpClientModule
 
   ],

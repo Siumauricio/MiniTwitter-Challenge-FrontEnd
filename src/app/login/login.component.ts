@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,7 +11,7 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
   LoginForm : FormGroup;
   validForm:boolean =false;
-  constructor(private formBuilder:FormBuilder) { 
+  constructor(private formBuilder:FormBuilder,private router: Router) { 
     this.LoginForm = this.formBuilder.group({
       username: ['',[Validators.required,Validators.maxLength(30)]],
       password: ['',[Validators.required,Validators.maxLength(20)]],
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
   async onSubmit(){
     if(this.LoginForm.valid){
       console.log('Hola ')
+      this.router.navigate(['/profile'])
 
       this.validForm = true;
     }else{
