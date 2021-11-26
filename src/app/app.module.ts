@@ -11,9 +11,11 @@ import { RegisterComponent } from './register/register.component';
 import { RegisterService } from './register/register.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
+import { TweetComponent } from './tweet/tweet.component';
+import { WatchAllTweetsComponent } from './watch-all-tweets/watch-all-tweets.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent, RegisterComponent,  ProfileComponent],
+  declarations: [AppComponent, LoginComponent, NavbarComponent, RegisterComponent,  ProfileComponent, TweetComponent, WatchAllTweetsComponent],
   imports: [BrowserModule, AppRoutingModule,    ReactiveFormsModule,    SweetAlert2Module.forRoot(), HttpClientModule
 
   ],
