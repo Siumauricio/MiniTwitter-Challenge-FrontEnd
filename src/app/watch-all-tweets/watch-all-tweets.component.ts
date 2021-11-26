@@ -17,12 +17,19 @@ export class WatchAllTweetsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.currentId() == 0){
+      this.router.navigate(['/login']);
+    }else{
       const url = `${URL}Twitt/GetAll`;
       this.http.get(url).subscribe(res =>{
         this.Tweet = res as Tweet[];
         console.log(this.Tweet); 
       });
+    }
   }
 
+  currentId(){
+    return this.authService.currentId;
+  }
 
 }

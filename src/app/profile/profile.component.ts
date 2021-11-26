@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../login/auth.service';
 import { URL } from '../configurations/config';
 import { Profile } from '../interfaces/User';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +13,7 @@ import { Profile } from '../interfaces/User';
 })
 export class ProfileComponent implements OnInit {
   profile : Profile;
-  constructor(private http: HttpClient,private authService:AuthService) { 
+  constructor(private http: HttpClient,private authService:AuthService,private router: Router) { 
     this.profile = {
       idUser: 0,
       username: '',
@@ -21,13 +23,18 @@ export class ProfileComponent implements OnInit {
       joinDate: new Date(),
       description: ''
     }
+
   }
 
   ngOnInit(): void {
-    const url = `${URL}User?id=${this.currentId()}`;
-    this.http.get<Profile>(url).subscribe((response:Profile) => {
-      this.profile = response;
-    });
+    if(this.currentId() == 0){
+      this.router.navigate(['/login']);
+    }else{
+      const url = `${URL}User?id=${this.currentId()}`;
+      this.http.get<Profile>(url).subscribe((response:Profile) => {
+        this.profile = response;
+      });
+    }
   }
 
   currentId(){

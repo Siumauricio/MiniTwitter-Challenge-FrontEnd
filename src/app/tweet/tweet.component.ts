@@ -21,17 +21,19 @@ export class TweetComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.currentId() == 0){
+      this.router.navigate(['/login']);
+    }
   }
   onSubmit(){
-    if(this.TweetForm.valid){
-      const url = `${URL}Twitt`;
-      let tweet = {idUser:this.authService.currentId,twitt:this.TweetForm.value.tweet};
-      this.http.post(url,tweet).subscribe(res =>{
-        this.succesMessage("Tweet Sended");
-        this.router.navigate(['/profile']);
-      });
+      if(this.TweetForm.valid){
+        const url = `${URL}Twitt`;
+        let tweet = {idUser:this.authService.currentId,twitt:this.TweetForm.value.tweet};
+        this.http.post(url,tweet).subscribe(res =>{
+          this.succesMessage("Tweet Sended");
+          this.router.navigate(['/profile']);
+        });
     }
-
   }
 
   get tweet(){
@@ -46,4 +48,8 @@ export class TweetComponent implements OnInit {
       timer: 1500,
     });
   }
+  currentId(){
+    return this.authService.currentId;
+  }
+
 }

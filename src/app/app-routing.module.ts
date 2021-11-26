@@ -14,9 +14,9 @@ const routes: Routes = [
         { path: '', component: LoginComponent },
         { path: 'login', component: LoginComponent,pathMatch: 'full' },
         {path:'register',component:RegisterComponent},
-        {path:'profile',component:ProfileComponent},
+        {path:'profile',component:ProfileComponent,canActivate:[AuthGuardService]},
         {path:'Tweet',component:TweetComponent,canActivate:[AuthGuardService]},
-        {path:'watch-all-tweets',component:WatchAllTweetsComponent}
+        {path:'watch-all-tweets',component:WatchAllTweetsComponent,canActivate:[AuthGuardService]}
     ]} 
 
   
