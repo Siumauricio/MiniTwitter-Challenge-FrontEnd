@@ -1,0 +1,18 @@
+<section>
+    <div class='center cn'>
+        <h1>Explore my tweets</h1>
+        <div   *ngIf="this.Tweet.length >0">
+            <div class="border mt-4 mb-4" *ngFor="let tweet of this.Tweet" >
+                <p>Tweet: {{tweet.twitt}}</p>
+                <p>Creation Date: {{tweet.creationDate  | date:'yyyy-MM-dd' }}</p>
+            </div>
+            <div style="min-height: 300px;">
+            </div>
+        </div>
+        <div *ngIf="this.Tweet.length == 0">
+            <div class="mb-5" style="min-height: 400px;">
+                <h3>You don't have any tweets :( </h3>
+            </div>
+        </div>
+    </div>
+</section>

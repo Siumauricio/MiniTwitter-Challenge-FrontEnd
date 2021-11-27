@@ -1,0 +1,22 @@
+h1,h3,p{
+    text-align: center;
+}
+
+/*make border for comment list*/
+
+
+.border{
+    border: 5px solid rgb(211, 58, 58);
+    border-radius: 5px;
+    padding: 25px;
+    margin: 10px;
+    /* make div center and box small*/
+    width: 50%;
+    height: 15%;
+    margin: auto;
+    box-shadow: 0px 0px 10px rgb(211, 58, 58);
+}
+
+.cn{
+    height: 100%;
+}

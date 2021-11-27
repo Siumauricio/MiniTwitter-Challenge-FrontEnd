@@ -22,4 +22,6 @@ export interface Tweet{
     username: string;
     idUser: number;
     twitt: string;
+    creationDate: Date;
+
 }

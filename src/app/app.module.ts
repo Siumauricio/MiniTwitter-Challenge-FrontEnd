@@ -16,12 +16,13 @@ import { WatchAllTweetsComponent } from './watch-all-tweets/watch-all-tweets.com
 import { AuthService } from './login/auth.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuardService } from './guards/auth-guard.service';
+import { WatchMyTweetsComponent } from './watch-my-tweets/watch-my-tweets.component';
 
 export function tokenGetter() {
   return localStorage.getItem('jwt');
 }
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent, RegisterComponent,  ProfileComponent, TweetComponent, WatchAllTweetsComponent],
+  declarations: [AppComponent, LoginComponent, NavbarComponent, RegisterComponent,  ProfileComponent, TweetComponent, WatchAllTweetsComponent, WatchMyTweetsComponent],
   imports: [BrowserModule, AppRoutingModule,    ReactiveFormsModule,    SweetAlert2Module.forRoot(), HttpClientModule,JwtModule.forRoot({config: {tokenGetter:tokenGetter,allowedDomains:["https://localhost:44350/"],disallowedRoutes:[]} })
 
   ],

@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { TweetComponent } from './tweet/tweet.component';
 import { WatchAllTweetsComponent } from './watch-all-tweets/watch-all-tweets.component';
 import { AuthGuardService } from './guards/auth-guard.service';
+import { WatchMyTweetsComponent } from './watch-my-tweets/watch-my-tweets.component';
 
 const routes: Routes = [
     { path: '' ,children: [
@@ -16,7 +17,8 @@ const routes: Routes = [
         {path:'register',component:RegisterComponent},
         {path:'profile',component:ProfileComponent,canActivate:[AuthGuardService]},
         {path:'Tweet',component:TweetComponent,canActivate:[AuthGuardService]},
-        {path:'watch-all-tweets',component:WatchAllTweetsComponent,canActivate:[AuthGuardService]}
+        {path:'watch-all-tweets',component:WatchAllTweetsComponent,canActivate:[AuthGuardService]},
+        {path:'watch-my-tweets',component:WatchMyTweetsComponent,canActivate:[AuthGuardService]}
     ]} 
 
   

@@ -4,6 +4,7 @@
         <div class="border mt-4 mb-4" *ngFor="let tweet of this.Tweet">
             <h3>Username: {{tweet.username}} </h3>
             <p>Tweet: {{tweet.twitt}}</p>
+            <p>Creation Date: {{tweet.creationDate  | date:'yyyy-MM-dd' }}</p>
         </div>
     </div>
 </section>
