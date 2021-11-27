@@ -2,7 +2,7 @@
     <form [formGroup]="TweetForm" (ngSubmit)="onSubmit()" [ngClass]=" !this.TweetForm?'was-validated':''"  autocomplete="off" style="max-width: 547px;">
         <h2 class="container mt-4">Tweet</h2>
         <div class="mb-3">
-          <textarea  id="floatingDNI"  class="form-control" formControlName="tweet" type="text" name="tweet" placeholder="Write Something...." required ></textarea>
+          <textarea  id="floatingDNI"  class="form-control" formControlName="tweet" type="text" name="tweet" placeholder="Write Something...." required maxlength="115"></textarea>
           <!-- <div *ngIf="tweet?.invalid && (tweet?.dirty || tweet?.touched)" class="alert alert-danger mt-3">
               <div *ngIf="tweet?.errors?.required">
                   Twittear

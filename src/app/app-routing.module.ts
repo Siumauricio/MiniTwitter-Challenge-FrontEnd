@@ -20,9 +20,6 @@ const routes: Routes = [
         {path:'watch-all-tweets',component:WatchAllTweetsComponent,canActivate:[AuthGuardService]},
         {path:'watch-my-tweets',component:WatchMyTweetsComponent,canActivate:[AuthGuardService]}
     ]} 
-
-  
-  // { path: 'login',  component: LoginComponent },
   ,{ path: '**', redirectTo: '' }
 ];
 

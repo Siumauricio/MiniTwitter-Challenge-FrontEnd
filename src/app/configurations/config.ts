@@ -1,1 +1,1 @@
-export const URL ="https://localhost:44350/"
+export const URL ="https://backend-final.azurewebsites.net/"
